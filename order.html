@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WackyPackies</title>
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/model.js"></script>
+	<script src="js/util.js"></script>
+	<script src="js/order.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" href="css/order.css">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/skeleton.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,600,700,800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Luckiest+Guy|Stylish&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	<section id="header"></section>
+	<section id="top">
+
+			<div id="logo"><img id="logo" src="img/logo.png"></div>
+			<div id="menu">
+				<div id="home" class="menu_item"><a class="link_no_underline link-text" href="index.html">HOME</a></div>
+				<div id="browse" class="menu_item" ><a class="link_no_underline link-text" href="browse.html">BROWSE</a></div>
+				<div id="browse" class="menu_item"><a class="link_no_underline link-text" href="about.html">ABOUT US</a></div>
+			</div>
+	</section><!-- top -->
+
+	<section id="main">
+		<div class="container">
+			<div id="left-container" class="one-half column">
+				<div id="detail-title"></div>
+				<img id="detail-img" src="img/box.png">
+
+				<div id="detail-content">
+<!-- 					<div id="selected-box-title" class="sub-heading"></div> -->
+					<div id="selected-box-desc-container">
+							<ul>
+								<p id="included-description"></p>
+							
+							</ul>	
+					</div>
+				</div>
+
+				<!-- themes -->
+				<div id="theme-title" class="sub-heading">CHOOSE A CARD</div>
+
+				<div id="themes-container">
+
+				</div>
+				<!-- themes container -->
+
+
+				<div class="sub-heading" style="margin-top:50px;">ALL CATEGORIES</div>
+
+				<div id="categories-container">
+					
+
+
+				</div><!--categories-container -->
+
+
+			</div><!-- left container -->
+
+
+			<div id="right-container" class="one-half column">
+				<div id="customize-heading" class="sub-heading">CUSTOMIZE 
+					<div id="customize-edit-text">
+						edit
+					</div>
+				</div>
+
+				<div id="customize-container">
+					<form id="customize-form" autocomplete="off" enctype="multipart/form-data" method="post" action="/payment.html">
+						<input id="input-order-id" type="hidden" name="input-order-id">
+						<input id="input-to" class="customize-input" type="text" placeholder="TO:">
+						<textarea id="input-message" class="customize-input" placeholder="NOTE:"></textarea>
+						<input id="input-from" class="customize-input" type="text" placeholder="FROM:">
+						<textarea id="input-instructions" style="display:none" class="customize-input" placeholder="ADD INSTRUCTIONS: (OPTIONAL)"></textarea>
+						<div id="file-name"></div>
+						<div id="file-name-2"></div>
+						<div id="file-preview">
+							<img id="file-preview-img" src=""/>
+						</div>
+						<div id="file-preview-2">
+							<img id="file-preview-img-2" src=""/>
+						</div>
+						<input style="display:none" type="file" accept="image/png, image/jpeg" id="upload-image-button-real" class="input-button" name="upload">
+						<input style="display:none" type="file" accept="image/png, image/jpeg" id="upload-image-button-real-new" class="input-button" name="upload">
+						<button id="upload-image-button-mask" class="input-button"> Upload Image (png, jpg)</button>
+						<button id="upload-image-button-mask-new" class="input-button"> Upload Another</button>
+						<button id="clear-images-button" class="input-button"> Clear Images</button>
+						<button id="upload-image-help"><div class="tooltip">?<span class="tooltiptext">Tooltip text</span></div></button>
+						<button id="save-button" class="input-button" value="save">save</button>
+					</form>
+					
+					<div id="form-feedback">
+						<div id="customize-feedback-text">
+							* [OPTIONAL] - Upload an image to use . We take care of cropping and editing!
+						</div>
+					</div>
+				</div><!-- customize container -->
+
+				<div id="add-ons-subheading" class="sub-heading">ADD-ONS</div>
+
+				<div id="items-container">
+
+					<!-- <div class="item">
+						<div class="item-img-container"> <img class="item-img" src="img/teddy_sample.jpeg"/></div>
+						<div class="item-desc-container">
+							<div class="item-title">Teddy Bear (Small)</div>
+							<div class="item-description">This is a teddyasfd asdfh ahof dafhjs dlsfalflksalflds </div>
+						</div>
+						<div class="item-price-container">
+							<div class="item-price">$ 3</div>
+						</div>
+
+						<div class="item-remove">
+							
+						</div>
+					</div> -->
+
+				</div><!--items-container-->
+
+				<div id="new-item-container">
+				
+				</div> 
+				<div id="new-item-controls">
+					<button id="previous-item-button" class="new-item-button">
+						<img id="previous-button" src="img/up-arrow.png" width="12px">
+					</button>
+					<div id="button-divider"></div>
+					<button id="next-item-button" class="new-item-button">
+						<img id="next-button" src="img/down-arrow.png" width="12px">
+					</button>
+				</div>
+
+				<div id="add-item-container">
+					<div id="add-item-carousel">carousel</div>
+					<button id="add-item-button" class="input-button"></button>
+					<button id="add-new-item-button" class="input-button"> + ADD ITEM</button>
+					<button id="cancel-item-button" class="input-button">CANCEL</button>
+				
+				</div> <!-- add item container -->
+
+				<div id="total-container">
+					<div class="sub-heading" style="display:none">TOTAL</div>
+					<table id="total-table">
+					  <tr>
+					    <td id="category-name"></td>
+					    <td id="base-price" class="price-column">$ <span id="basePrice"></span></td>
+					  </tr>
+					  <tr>
+					    <td>ADD-ONS</td>
+					    <td id="addons-price" class="price-column">$ <span id="totalAddOns"></span></td>
+					  </tr>
+					  <tr id="shipping-price-free">
+					    <td>SHIPPING</td>
+					    <td class="price-column">FREE</td>
+					  </tr>
+					  <tr id="shipping-price-paid">
+					    <td>SHIPPING</td>
+					    <td class="price-column">$ <span id="shippingPrice"></span></td>
+					  </tr>
+
+					  <tr>
+					    <td class="price-bold-tag">TOTAL</td>
+					    <td id="total-price" class="price-column price-bold-tag">$ <span id="totalPrice"></span></td>
+					  </tr>
+
+					 
+					</table>
+				</div>
+				<div id="error-message" class="error"> </div><!-- error -->
+				<button id="payment-button" class="payment-not-ready" type="submit" form="customize-form">Continue to Payment</button>
+			</div>
+		</div>
+	</section>
+
+
+	</section>
+	
+	<footer id="footer">
+		<button id="subscribe-email">subscribe</button>
+		footie
+	</footer>
+</body>
+
+</html>

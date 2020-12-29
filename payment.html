@@ -1,0 +1,254 @@
+<html>
+	<head>
+	<!-- link to the SqPaymentForm library -->
+	<script type="text/javascript" src="https://js.squareupsandbox.com/v2/paymentform">
+	</script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/model.js"></script>
+	<script src="js/util.js"></script>
+	<script src="js/payment.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" href="css/payment.css">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/skeleton.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,600,700,800&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+	<!-- link to the local custom styles for SqPaymentForm -->
+	<link rel="stylesheet" type="text/css" href="css/mysqpaymentform.css">
+
+	</head>
+
+	<body>
+		<section id="header"></section>
+		<section id="top">
+
+			<div id="logo"><img id="logo" src="img/logo.png"></div>
+			<div id="menu">
+				<div id="home" class="menu_item"><a class="link_no_underline" href="index.html">HOME</a></div>
+				<div id="browse" class="menu_item" ><a class="link_no_underline" href="browse.html">BROWSE</a></div>
+				<div id="browse" class="menu_item">CART</div>
+			</div>
+		</section><!-- top -->
+
+		<section id="before-payment">
+			<section id="item-info-container" class="container">
+				
+				<div id="left-half">	
+					<img id="payment-item-img" src="img/box.png">
+					<div id="category-name"></div>
+				</div>
+
+				<div id="right-half">
+					<div id="addons-container">
+						<div id="addons-tag" class="sub-heading">Add Ons</div>
+					</div>
+					<div id="message-container">
+						<div class="message-tag sub-heading">To:</div>
+						<div id="to" class="item"></div>
+						<div class="message-tag sub-heading">From:</div>
+						<div id="from" class="item"></div>
+						<div class="message-tag sub-heading">Message:</div>
+						<div id="message" class="item"></div>
+					</div>
+				</div>
+			</section>
+
+			<section id="price-container" class="container">
+				<div id="price-total" class="column"></div>
+			</section>
+
+			<section id="shipping-info-container" class="container">
+				<div class="column">
+					<div id="shipping-container">
+						<div id="shipping-heading" class="sub-heading">SHIP TO
+							<div id="shipping-form-edit">
+								edit
+							</div>
+						</div>
+						<form id="shipping-form">
+							<!-- <div class="form-input">
+								<input class="large-input shipping-input" type="text" placeholder="email (optional)" name="email"/>
+							</div> -->
+							<div class="form-input">
+								<input id="email-input" class="large-input shipping-input" type="text" placeholder="email" name="email"/>
+							</div>
+							<div class="form-input">
+								<input id="name-input" class="large-input shipping-input" type="text" placeholder="name" name="name"/>
+							</div>
+							<div class="form-input">
+								<input id="address" class="large-input shipping-input" type="text" placeholder="address" name="address"/>
+							</div>
+							<div class="form-input">
+								<input id="city" class="small-input shipping-input" type="text" placeholder="city" name="city"/>
+								<input id="state" class="small-input shipping-input" type="text" placeholder="state" name="state"/>
+								<input id="zip" class="small-input shipping-input" type="text" placeholder="zip code" name="zip"/>
+							</div>
+							<input id="shipping-save-button" class="large-input" type="submit" name="save" value="SAVE" />
+
+						</form>
+					</div>
+				</div>
+			</section>
+
+			<section id="payment-error-container" class="container">
+				<div id="error-message" class="error"></div>
+			</section>
+
+			<section id="square-payment-container" class="container">
+
+					<div id="payment-heading" class="sub-heading">PAYMENT</div>
+					<div id="form-container">
+						<div id="sq-card-number"></div>
+						<div class="third" id="sq-expiration-date"></div>
+						<div class="third" id="sq-cvv"></div>
+						<div class="third" id="sq-postal-code"></div>
+						<div id="hidden-final-price"></div>
+						<button id="sq-creditcard" class="button-credit-card" >
+						</button>
+				</div> <!-- end #form-container --> 
+
+			    <script type="text/javascript">
+			    	//TODO: paste code from step 2.1.1
+
+			    	const idempotency_key = uuidv4();
+
+
+			     // Create and initialize a payment form object
+			     	const paymentForm = new SqPaymentForm({
+			       // Initialize the payment form elements
+			       
+			       //TODO: Replace with your sandbox application ID
+			       applicationId: "sandbox-sq0idb-GQ2DzHjaRaFtQ3mhWIS_0A",
+			       inputClass: 'sq-input',
+			       autoBuild: false,
+			       // Customize the CSS for SqPaymentForm iframe elements
+			       inputStyles: [{
+			           fontSize: '16px',
+			           lineHeight: '24px',
+			           padding: '16px',
+			           placeholderColor: '#a0a0a0',
+			           backgroundColor: 'transparent',
+			       }],
+			       // Initialize the credit card placeholders
+			       cardNumber: {
+			           elementId: 'sq-card-number',
+			           placeholder: 'Card Number'
+			       },
+			       cvv: {
+			           elementId: 'sq-cvv',
+			           placeholder: 'CVV'
+			       },
+			       expirationDate: {
+			           elementId: 'sq-expiration-date',
+			           placeholder: 'MM/YY'
+			       },
+			       postalCode: {
+			           elementId: 'sq-postal-code',
+			           placeholder: 'Postal'
+			       },
+			       // SqPaymentForm callback functions
+			       callbacks: {
+			           /*
+			           * callback function: cardNonceResponseReceived
+			           * Triggered when: SqPaymentForm completes a card nonce request
+			           */
+					cardNonceResponseReceived: function (errors, nonce, cardData) {
+						if (errors) {
+						   // Log errors from nonce generation to the browser developer console.
+						   console.error('Encountered errors:');
+						   errors.forEach(function (error) {
+						       console.error('  ' + error.message);
+						   });
+						   alert('Encountered errors, check browser developer console for more details');
+						   return;
+						}
+
+						fetch('process-payment', {
+						  method: 'POST',
+						  headers: {
+						    'Accept': 'application/json',
+						    'Content-Type': 'application/json'
+						  },
+						  body: JSON.stringify({
+						    nonce: nonce,
+						    idempotency_key: idempotency_key,
+						    amount_money:{amount:parseInt(parseFloat($('#hidden-final-price').text() * 100)), currency:'USD'},
+						    location_id: "KAMBM78ZTBXTR"
+						  })   
+						})
+						.catch(err => {
+						  alert('Network error: ' + err);
+						})
+						.then(response => {
+						  if (!response.ok) {
+						    return response.json().then(
+						      errorInfo => Promise.reject(errorInfo));
+						  }
+						  return response.json();
+						})
+						.then(data => {
+						  console.log(data);
+						  saveOrderDB();
+						  showPaymentComplete();
+						  alert('Payment complete successfully!\nCheck browser developer console for more details');
+						})
+						.catch(err => {
+						  console.error(err);
+						  alert('Payment failed to complete!\nCheck browser developer console for more details');
+						});
+
+			           }
+			       }
+			     });
+
+			 	paymentForm.build();
+
+			 	function uuidv4() {
+				   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+				     var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+				     return v.toString(16);
+				   });
+				}
+
+			    function onGetCardNonce(event) {
+			       // Don't submit the form until SqPaymentForm returns with a nonce
+			       event.preventDefault();
+			       // Request a nonce from the SqPaymentForm object
+			       paymentForm.requestCardNonce();
+			     }
+
+			   </script>
+
+			</section><!-- square payment container -->
+		</section><!--before payment -->
+
+		<section id="after-payment" class="container">
+			<div id="payment-complete-container">
+
+				<div id="order-number-text">Thank you! Your order number is 
+					<span id="order-number"></span>.
+				</div>
+
+				<div id="email-description">A confirmation email will be sent to
+					<span id="order-email"></span>.
+				</div>
+
+				<div id="order-description"></div>
+				<div id="shipping-info">
+					Your package is being prepared and will be ready to ship in 1-3 business days.
+				</div>
+				<div id="order-contact-info">
+					Email us at <span id="email-help">help@wackypackies.com </span>for questions about your order.
+				</div>
+
+				<button id="new-order-button"><a class="link_no_underline">Start New Order</a></button>
+			</div>
+		</section>
+
+		<footer id="footer">
+		footie
+	</footer>
+	</body>
+</html>
