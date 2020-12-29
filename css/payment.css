@@ -1,0 +1,251 @@
+/*	dark brown:
+	#3c2415;
+
+	mid brown: 
+	#603913;
+
+	lite brown: 
+	#d3b297;
+
+	yellow:
+	#ffde17;
+
+*/
+body, html{
+	background-color:#fff !important;
+}
+
+*{
+	font-family: 'Open Sans', sans-serif;
+}
+
+#item-info-container{
+	margin-top:20px;
+	max-width: 650px;
+	overflow:hidden;
+	position:relative;
+	text-align: center;
+}
+
+#left-half{
+	margin-right:10px;
+	max-width: 260px;
+	display:inline-block;
+	vertical-align: top;
+}
+
+
+#right-half{
+	margin-left:10px;
+	max-width: 260px;
+	display:inline-block;
+	vertical-align: top;
+}
+
+#payment-item-img{
+	width:100%;
+	float:right;
+	margin:auto;
+}
+
+#category-name{
+	font-family: 'Noto Sans JP', sans-serif;
+	cursor:pointer;
+	margin:auto;
+	display:inline-block;
+	padding:3px 12px;
+	/*display:inline-block;*/
+	/*background: #ffde17;*/
+	background:#fff;
+	color:#3c2415;
+	text-transform: uppercase;
+	font-size:16px;
+	border-radius:4px;
+	border:1px #603913 solid;
+	box-shadow: 1px 1px 2px #666;
+	font-weight:300;
+	letter-spacing: .01em;
+	width:60%;
+	max-width: 299px;
+
+}
+
+#shipping-heading{
+	position:relative;
+	color: #603913;
+	padding:10px 15px;
+}
+
+#payment-heading{
+	padding:10px 15px;
+	margin:auto;
+	text-align: center;
+}
+
+#shipping-container{
+	text-align: center;
+}
+
+#shipping-form-edit{
+	display:inline-block;
+	float:right;
+	cursor: default;
+}
+
+#price-container{
+	margin-top:20px;
+	width:500px;
+	border-radius:3px;
+	text-align: center;
+}
+
+#shipping-info-container{
+	margin-top:20px;
+	background:#ffde17;
+	width:500px;
+	border-radius:3px;
+}
+
+#square-payment-container{
+	width:500px;
+	margin-bottom:100px;
+	padding-bottom: 20px;
+	background:#eee;
+	overflow: hidden;
+	border-radius:2px;
+}
+
+#hidden-final-price{
+	display:none;
+}
+
+#form-container{
+	width:420px !important;
+	transform:none !important;
+}
+
+#addons-container{
+	display:none;
+	margin:auto;
+	clear:both;
+}
+
+#addons-tag{
+	margin-top:10px;
+	float:left;
+	padding-right:2px;
+	display:inline-block;
+	clear:both;
+	font-size: 10px;
+	text-transform: uppercase;
+}
+
+.message-tag{
+	margin-top:10px;
+	float:left;
+	padding-right:2px;
+	display:inline-block;
+	font-size: 10px;
+	text-transform: uppercase;
+}
+
+#message-container{
+/*	margin-top:20px;*/
+}
+
+#price-total{
+	color:	#603913;
+	font-size:35px;
+	font-family: 'Gamja Flower', cursive;
+}
+
+.item{
+	color:#603913;
+	clear:left;
+	margin-bottom:1px;
+	text-align: left;
+	max-width:250px;
+}
+
+.large-input{
+	width:420px;
+}
+
+.small-input{
+	width:137px;
+}
+
+.shipping-input{
+	border-radius:6px !important;
+	height:56px !important;
+	height:56px !important;
+	border-radius:6px !important;
+}
+
+#shipping-save-button{
+	background: #603913;
+	color:#fff;
+	border:0;
+	height:56px;
+	border-radius:6px;
+}
+
+#before-payment{
+
+}
+
+#after-payment{
+	display:none;
+}
+
+#payment-complete-container{
+	margin-top:50px;
+	font-size:20px;
+	color:#603913;
+	text-align: center;
+}
+
+#order-number{
+	font-size:25px;
+	font-weight: bold;
+	color: #3c2415;
+}
+
+#payment-error-container{
+	width:500px;
+}
+
+#order-description{
+	margin-top:40px;
+}
+
+#order-email{
+	font-weight:bold;
+	color: #603913;
+}
+
+#email-help{
+	font-weight:bold;
+	color: #603913;
+}
+
+#email-help:hover{
+	text-decoration: underline;
+	color: #603913;
+	cursor: default;
+}
+
+#new-order-button{
+	background:	#ffde17;
+	border-radius:2px;
+	margin-top:50px;
+}
+
+#error-message{
+
+}
+
+#sq-creditcard{
+
+}
+

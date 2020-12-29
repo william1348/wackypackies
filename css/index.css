@@ -1,0 +1,170 @@
+/*	dark brown:
+	#3c2415;
+
+	mid brown: 
+	#603913;
+
+	lite brown: 
+	#d3b297;
+
+	yellow:
+	#ffde17;
+
+*/
+*{
+	font-family: 'Open Sans', sans-serif;
+}
+
+html, body{
+	padding:0;
+	margin:0;
+	background:white;
+}
+#menu{
+	margin-top:10px;
+}
+
+#main-section{
+	margin-top:20px;
+	margin-bottom:50px;
+	width:100%;
+	margin-left:auto;
+	margin-right:auto;
+/*	background:green;*/
+}
+
+.sub-heading{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+#category-container{
+	width:100%;
+}
+
+#left-sample-container{
+	position:relative;
+	width:56%;
+	margin:auto;
+}
+
+#left-sample-image{
+	width:100%;
+	text-align:left;
+}
+
+#left-sample-text-overlay{
+	top:10px;
+	position:absolute;
+	background:#efefef;
+	opacity: 0.9;
+	color:#444;
+	font-size:14px;
+	padding-left:5px;
+	padding-right:15px;
+}
+
+#logo{
+	margin-top:10px;
+	width:420px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+}
+
+#tagline-container{
+	margin-top:10px;
+	margin-bottom:10px;
+	text-align: center;
+  	/*color:	#603913;*/
+  	color:#603913;
+  	line-height:1.8;
+}
+
+#build-your-own-button-link{
+	text-decoration: none;
+	color:#3c2415;
+	color:	#603913;
+}
+
+#build-your-own-button{
+	cursor:pointer;
+	display:inline-block;
+	float:center;
+	clear:both;
+	font-family: 'Open Sans', sans-serif;
+	background:	#ffde17;
+	border-radius:5px;
+	border:2px #603913 solid;
+	box-shadow: 1px 1px 2px #666;
+	padding:1px 10px;
+	font-size:18px;
+	font-weight:600;
+		height:auto;
+			padding:1px 10px;
+	text-transform: uppercase;
+}
+
+#build-your-own-button:hover{
+	opacity:0.8;
+	transition: 0.3;
+}
+
+.tagline-text{
+	margin-top:10px;
+	margin-bottom:5px;
+	font-size:25px;
+	font-family: 'Coming Soon', cursive;
+	font-weight:300;
+}
+
+#right-sample-img{
+	width:100%;
+}
+
+#right-sample-container{
+  	background-color: #ffde17;
+	padding:5px;
+}
+
+#right-sample-text-overlay{
+
+}
+
+/* LEFT SAMPLE */
+#left-sample-title{
+	font-size: 20px;
+	text-transform: uppercase;
+}
+
+#bottom-description{
+	max-width:650px;
+	width:100%;
+	text-align: center;
+	color:#603913;
+	padding:30px;
+	font-family: 'Coming Soon', cursive;
+	line-height:1.8;
+	font-size:17px;
+	margin-top:30px;
+}
+
+#see-all-container{
+	margin-top:20px;
+	text-decoration: none;
+	text-align:center;
+	margin-bottom:100px;
+}
+
+#see-all-button{
+	height:auto;
+	font-size:15px;
+	box-shadow: 1px 1px 2px #666;
+	border-radius:5px;
+	border:2px #603913 solid;
+	background:	#ffde17;
+	color: #603913;
+	padding:1px 10px;
+	font-family: 'Open Sans', sans-serif;
+}
+

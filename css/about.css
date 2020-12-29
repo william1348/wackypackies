@@ -1,0 +1,22 @@
+/*	dark brown:
+	#3c2415;
+
+	mid brown: 
+	#603913;
+
+	lite brown: 
+	#d3b297;
+
+	yellow:
+	#ffde17;
+
+*/
+*{
+	font-family: 'Open Sans', sans-serif;
+}
+
+html, body{
+	padding:0;
+	margin:0;
+	background:white;
+}

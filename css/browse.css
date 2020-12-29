@@ -1,0 +1,49 @@
+/*	dark brown:
+	#3c2415;
+
+	mid brown: 
+	#603913;
+
+	lite brown: 
+	#d3b297;
+
+	yellow:
+	#ffde17;
+
+*/
+*{
+	font-family: 'Open Sans', sans-serif;
+}
+
+html, body{
+	padding:0;
+	margin:0;
+	background:white;
+}
+
+
+#category-container{
+	margin-bottom:80px;
+}
+
+.browse-section-image{
+	width:90%;
+}
+
+.browse-section-title{
+	margin-bottom:20px;
+}
+
+.browse-section-description{
+	color:	#603913;
+	font-size:14px;
+	margin:auto;
+	width:80%;
+	margin-bottom:20px;
+}
+
+#more-to-come{
+	text-align:center;
+	margin-bottom:120px;
+	color:#603913;
+}
