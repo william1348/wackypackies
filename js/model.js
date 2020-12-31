@@ -6,13 +6,16 @@ var CATEGORY = "category";
 var ITEMS = "items";
 var THEMES = "themes";
 
-function Category(id, name, description, base_price, included, addons) {
+var IMG_DIRECTORY = "/img/"
+
+function Category(id, name, description, base_price, included, addons, images) {
   this.id = id;
   this.name = name;
   this.included = included;
   this.addons = addons;
   this.base_price = base_price;
   this.description = description;
+  this.images = images;
 }
 
 function Theme(id, name, color, src){

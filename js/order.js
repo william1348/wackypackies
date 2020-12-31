@@ -19,6 +19,7 @@ var DEFAULT_SHIPPING_PRICE = 7;
 
 // order #
 var orderID = -1;
+var images = [];
 
 $(document).ready(function(){
 	  initialize();
@@ -348,9 +349,10 @@ function toggleCustomize(show){
 
 function populateCategories(list){
   console.log(list);
+
   for(var i=0;i<list.length;i++){
-    var category = new Category(list[i].id, list[i].name, list[i].description, list[i].base, list[i].included, list[i].addons);
-    if(category.id != -1){ // build your own
+    var category = new Category(list[i].id, list[i].name, list[i].description, list[i].base, list[i].included, list[i].addons, list[i].src);
+    if(category.id != -1){ // build your owin
           categoryArray.push(category);
         }
   //  console.log( " name " + category.name + " id " + category.id + " included " + category.included + " add ons " + list[i].addons.toString());
@@ -393,11 +395,11 @@ function populateAllItems(items){
   finalAllItemsArray = allItemsArray;
 }
 
+
 function setCurrentCategory(category){
   if(category == null) return;
-  currentCategory = new Category(category.id, category.name, category.description, category.base_price, category.included, category.addons);
+  currentCategory = new Category(category.id, category.name, category.description, category.base_price, category.included, category.addons, category.src);
 }
-
 
 // left container, selected category details
 function populateSelected(){
@@ -408,7 +410,36 @@ function populateSelected(){
      $('#detail-title').text(currentCategory.name);
      $('#category-name').text(currentCategory.name);
      $('#included-description').text(currentCategory.description);
+     populateImages();
   }
+}
+
+function populateImages(){
+    if(currentCategory.images == null){
+      console.log('populateImages::error');
+      return;
+    }
+    images = currentCategory.images;
+    $('#detail-img').attr('src', IMG_DIRECTORY + images[0]);
+      if(images.length > 1){
+        for(var i=0;i<images.length;i++){
+          if(i == 0){
+            $thumbnailContainer = $('<div>', {class: "thumbnail-container thumbnail-container-selected"});
+          }else{
+            $thumbnailContainer = $('<div>', {class: "thumbnail-container"});
+          }
+          var $thumbnailImg = $('<img>', {class: "thumbnail-img"});
+          $thumbnailImg.attr("src", IMG_DIRECTORY+ images[i]);
+          $thumbnailContainer.append($thumbnailImg);
+          $('#thumbnails').append($thumbnailContainer);
+        }
+      }
+
+      $('.thumbnail-img').click(function(){
+        $('.thumbnail-container').attr("class", "thumbnail-container");
+          $('#detail-img').attr('src', $(this).attr('src'));
+          $(this).parent().addClass("thumbnail-container-selected");
+      });
 }
 
 

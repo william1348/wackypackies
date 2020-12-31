@@ -240,3 +240,28 @@ html, body{
 	padding-left:5px;
 	padding:0;
 }
+
+.thumbnail-img{
+	position:relative;
+	border:0;
+	object-fit: cover;
+  	width: 100%;
+  	min-height: 100%;
+	width:50px;
+}
+
+.thumbnail-container-selected{
+	border:2px 	#ffde17 solid !important;
+}
+
+.thumbnail-container{
+	margin-right:5px;
+	border:2px 	#eee solid;
+	border-radius:4px;
+	position:relative;
+	margin-bottom:5px;
+	float:left;
+	width:50px;
+	height:50px;
+	overflow:hidden;
+}

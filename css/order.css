@@ -161,7 +161,10 @@
 }
 
 #detail-img{
-	width:80%;
+	object-fit:scale-down;
+	width:auto;
+	max-width:80%;
+	height:300px;
 }
 
 .item-img{
@@ -574,5 +577,13 @@ input[type="text"]{
 	color:	#603913;
 	font-size:13px;
 	padding-right:50px;
+}
+
+#thumbnails{
+	width:100%;
+	float:left;
+	display:block;
+	clear:both;
+	position:relative;
 }
 

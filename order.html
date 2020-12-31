@@ -32,14 +32,16 @@
 		<div class="container">
 			<div id="left-container" class="one-half column">
 				<div id="detail-title"></div>
-				<img id="detail-img" src="img/box.png">
+				<img id="detail-img">
 
+				<!-- thumbnails - populated dynamically --> 
+				<div id="thumbnails"></div>
+
+				<!-- item description -->
 				<div id="detail-content">
-<!-- 					<div id="selected-box-title" class="sub-heading"></div> -->
 					<div id="selected-box-desc-container">
 							<ul>
 								<p id="included-description"></p>
-							
 							</ul>	
 					</div>
 				</div>
@@ -82,10 +84,10 @@
 						<div id="file-name"></div>
 						<div id="file-name-2"></div>
 						<div id="file-preview">
-							<img id="file-preview-img" src=""/>
+							<img id="file-preview-img" src="" class="thumbnail-img"/>
 						</div>
 						<div id="file-preview-2">
-							<img id="file-preview-img-2" src=""/>
+							<img id="file-preview-img-2" src="" class="thumbnail-img"/>
 						</div>
 						<input style="display:none" type="file" accept="image/png, image/jpeg" id="upload-image-button-real" class="input-button" name="upload">
 						<input style="display:none" type="file" accept="image/png, image/jpeg" id="upload-image-button-real-new" class="input-button" name="upload">
