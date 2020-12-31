@@ -163,8 +163,8 @@
 #detail-img{
 	object-fit:scale-down;
 	width:auto;
-	max-width:80%;
-	height:300px;
+	max-width:90%;
+	height:320px;
 }
 
 .item-img{
@@ -574,9 +574,10 @@ input[type="text"]{
 }
 
 #included-description{
-	color:	#603913;
+	color:#603913;
 	font-size:13px;
 	padding-right:50px;
+	margin-bottom:30px;
 }
 
 #thumbnails{
@@ -585,5 +586,6 @@ input[type="text"]{
 	display:block;
 	clear:both;
 	position:relative;
+	margin-bottom:10px;
 }
 
