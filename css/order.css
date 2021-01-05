@@ -36,7 +36,7 @@
 	width:calc(33% - 6px);
 	border:2px #ccc solid;
 	background:red;
-	height:50px;
+	height:80px;
 	display:inline-block;
 	cursor:default;
 }
@@ -555,16 +555,8 @@ input[type="text"]{
 #detail-title{
 	position:absolute;
 	left:0;
-	background:#ffde17;
+	background:#eee;
 	padding:5px;
-	cursor:pointer;
-	margin:5px;
-	padding:4px 8px;
-	color: #3c2415;
-	display:inline-block;
-	font-weight: bold;
-	font-size:10px;
-		box-shadow: 1px 1px 1px #3c2415;
 }
 
 #shipping-price-paid{

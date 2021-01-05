@@ -458,7 +458,8 @@ function populateThemes(themes){
   for(var i=0;i<themes.length;i++){
     (function(){
       var $item = $('<div>', {class: "theme-item"});
-      $item.css({"background-color" : themes[i].color});
+      $item.css({"background-image" : "url('img/theme1.png')"});
+      $item.css({"background-size" : "cover"});
       $item.name = themes[i].name;
 //    $item.append('hi ' + themes[i].name);
       $container.append($item);
