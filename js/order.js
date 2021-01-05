@@ -176,6 +176,10 @@ function initialize(){
       subscribeEmail();
   });
 
+  $('#mobile-see-all').click(function(){
+    $('#categories-mobile').show();
+  });
+
   populateForm();
 }
 
@@ -347,9 +351,15 @@ function populateCategories(list){
 
   for(var j=0;j<categoryArray.length;j++){
     var $currentRow;
+    var container;
+    if($('#categories-container').is(":visible")){
+      container = $('#categories-container');
+    }else{
+      container = $('#categories-mobile');
+    }
     if(j % 2 == 0){
       var $row = $('<div>', {class: "row"});
-      $('#categories-container').append($row);
+      container.append($row);
       $currentRow = $row;
     }
 
