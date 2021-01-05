@@ -1,4 +1,4 @@
-/*/*/*	dark brown:
+/*	dark brown:
 	#3c2415;
 
 	mid brown: 
@@ -382,4 +382,13 @@ html, body{
 	}
 }
 
-
+.mobile-button{
+	background:#ffde17;
+	color:#3c2415;
+	border-radius:3px;
+	height:38px;
+	line-height: 38px;
+	margin-left:20px;
+	margin-right:20px;
+	font-size: 11px;
+}

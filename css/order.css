@@ -459,8 +459,9 @@ td, table{
 	font-size: 14px;
 	cursor:pointer;
 	float:right;
-	border-radius:2px;
+	border-radius:3px;
 	position:relative;
+	border:0;
 }
 
 .payment-not-ready{
@@ -587,5 +588,39 @@ input[type="text"]{
 	clear:both;
 	position:relative;
 	margin-bottom:10px;
+}
+
+#categories-container-mobile{
+	display:none;
+}
+
+#categories-mobile{
+	display:none;
+}
+
+#mobile-see-all{
+	text-align:center;
+	margin-bottom:80px;
+}
+
+@media (max-width: 420px) {
+
+	#save-button, #upload-image-button-mask, #upload-image-button-mask-new, #payment-button, #clear-images-button{
+		width:100%;
+		float:none;
+		padding:0;
+	}
+	#categories-container-mobile{
+		display:block;
+	}
+
+	#categories-container{
+		display:none;
+	}
+
+	#payment-button{
+		display:block;
+		width:100%;
+	}
 }
 
