@@ -1,5 +1,5 @@
 var categoryArray = [];
-
+var itemsArray = [];
 $(document).ready(function(){
 	  initialize();
 });
@@ -11,11 +11,61 @@ function initialize(){
        populateCategories(data.categories);
     });
 
-      $('#header').load("header.html", onHeaderLoaded);
+    $.ajax({
+        url: BASE_URL + ITEMS
+    }).then(function(data) {
+       populateItems(data.items);
+    });
+
+    $('#header').load("header.html", onHeaderLoaded);
+    $('#footer').load("footer.html", onHeaderLoaded);
+    $('#navigation').load("navigation.html", onHeaderLoaded);
+
+    $('.tab').click(function(){
+      $('.tab').removeClass('tab-selected');
+      $(this).addClass("tab-selected");
+      if( $(this).attr('name') == "packies"){
+        $('#category-container').fadeIn();
+        $('#items-container').fadeOut();
+      }else{
+        $('#items-container').fadeIn();
+        $('#category-container').fadeOut();
+      }
+    });
 }
 
 function onHeaderLoaded(){
   
+}
+
+function populateItems(list){
+  for(var i=0;i<list.length;i++){
+    var obj = list[i];
+    var item = new Item(obj.id, obj.is_addon, obj.name, obj.description, obj.count, obj.options, obj.price, obj.src);
+    itemsArray.push(item);
+  }
+  console.log(list);
+
+  for(var j=0;j<itemsArray.length;j++){
+    var $currentRow;
+    if(j % 3 == 0){
+      var $row = $('<div>', {class: "row"});
+      $('#items-container').append($row);
+      $currentRow = $row;
+    }
+
+    // closures
+    (function () {
+      var obj = itemsArray[j];
+      console.log(obj);
+      var $item = $('<div>', {class: "browse-section one-third column"});
+      $item.id = obj.id;
+      $item.append("<img class='browse-item-img' src='" + IMG_DIRECTORY + "box.jpeg" + "'>" );
+      $item.append("<div class='browse-item-title'>" + obj.name + "</div>");
+      $item.append("<div class='browse-item-description'>" + obj.description + "</div>");
+      $currentRow.append($item);
+    }()); 
+  }
 }
 
 function populateCategories(list){
@@ -23,7 +73,7 @@ function populateCategories(list){
   for(var i=0;i<list.length;i++){
       var category = new Category(list[i].id, list[i].name,list[i].description, list[i].included, list[i].addons);
       if(category.id != -1){
-              categoryArray.push(category);
+        categoryArray.push(category);
       }
   //  console.log( " name " + category.name + " id " + category.id + " included " + category.included + " add ons " + list[i].addons.toString());
   }

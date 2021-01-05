@@ -6,7 +6,9 @@ $(document).ready(function(){
 
 function initialize(){
     $('#header').load("header.html", onHeaderLoaded);
-}
+    $('#footer').load("footer.html", onHeaderLoaded);
+    $('#navigation').load("navigation.html", onHeaderLoaded);
+  }
 
 function onHeaderLoaded(){
   

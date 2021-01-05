@@ -1,0 +1,49 @@
+<div id="footer-content">
+	<script>
+		var lastScrollTop = 0;
+		$(document).ready(function(){
+			$("#footer").hide();
+			$('#subscribe-submit').click(function(){
+				subscribeEmail($('#subscribe-email-input').val());
+				hideSubscribeEmail();
+			});
+			isEmailSubscribed = localStorage.getItem('isEmailSubscribed');
+			if(isEmailSubscribed){
+				//hideSubscribeEmail();
+				//showCopyright();
+			}
+			$(window).scroll(function(e){
+				var st = $(this).scrollTop();
+			    if (st > lastScrollTop){
+  			       $('#footer').fadeIn();
+			    } else {
+			       $('#footer').fadeOut();
+			    }
+			    lastScrollTop = st;
+			});
+		});
+
+		function showCopyright(){
+			$('#copyright-container').show();
+		}
+
+		function hideSubscribeEmail(){
+			localStorage.setItem('isEmailSubscribed', true);
+			$('#subscribe-container').hide();
+		}
+
+	</script>
+	<div id="footer-img-container">
+		<!-- <img id="footer-img" src="img/visa_mastercard.png"/> -->
+		<img class="social-img" src="img/facebook.svg" href="http://www.facebook.com">
+		<img class="social-img" src="img/instagram.svg">
+	</div>
+	<div id="subscribe-container">
+		Subscribe for discounts and giveaways! 
+		<input id="subscribe-email-input" class="subscribe-input" type="text" name="subscribe-email" placeholder="email">
+		<button id="subscribe-submit" class="subscribe-input" type="submit" text="GO" value="GO">GO</button>
+	</div>
+	<div id="copyright-container" style="display:none">
+		&copy; 2020
+	</div>
+</div>

@@ -62,6 +62,8 @@ $(document).ready(function(){
 
 function initialize(){
   $('#header').load("header.html", onHeaderLoaded);
+  $('#footer').load("footer.html", onHeaderLoaded);
+  $('#navigation').load("navigation.html", onHeaderLoaded);
 
   // generate order ID
   if(orderID == -1){
@@ -175,21 +177,6 @@ function initialize(){
   });
 
   populateForm();
-}
-
-
-function subscribeEmail(){
-  var body = {
-    "email" : "wkung42@gmail.com"
-  }
-  $.ajax({
-      url: BASE_URL + "subscribe",
-      data: body,
-      dataType: 'json',
-      type: 'POST'
-    }).then(function(data){
-      alert('email subscribed');
-    });
 }
 
 function showPreview(input){

@@ -6,6 +6,7 @@
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery-ui.js"></script>
 	<script src="js/model.js"></script>
+	<script src="js/util.js"></script>
 	<script src="js/index.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
@@ -22,25 +23,16 @@
 </head>
 <body>
 
-	<section id="header"></section>
-	<section id="top">
-
-			<div id="logo"><img id="logo" src="img/logo.png"></div>
-			<div id="menu">
-				<div id="home" class="menu_item"><a class="link_no_underline link-text" href="index.html">HOME</a></div>
-				<div id="browse" class="menu_item" ><a class="link_no_underline link-text" href="browse.html">BROWSE</a></div>
-				<div id="browse" class="menu_item"><a class="link_no_underline link-text" href="about.html">ABOUT US</a></div>
-			</div>
-
-	</section><!-- top -->
+	<section id="header">
+	</section>
+	<section id="navigation">
+	</section>
 
 	<section id="top-fold">
 		<div class="container">
 			<div class="column">
 				<div id="left-sample-container">
-					<div id="left-sample-image">
 						<img id="left-sample-image" src="img/box.png">
-					</div>
 					<div id="left-sample-text-overlay">
 						<!-- <div id="left-sample-title">Birthday Box</div> -->
 					</div>
@@ -68,7 +60,7 @@
 	<section>
 		<div id="tagline-container" class="container">
 			<div class="tagline-text">Send a personalized care package to anyone, anywhere! </div>
-			<div class="tagline-text"><button id="build-your-own-button"><a id="build-your-own-button-link" href="order.html?category=-1">Build Your Own</a></button> or choose one of our curated boxes to get started. </div>
+			<div class="tagline-text"><button class="build-your-own-button"><a class="build-your-own-button-link" href="order.html?category=-1">Build Your Own</a></button> or choose one of our curated boxes to get started. </div>
 		</div>
 
 	</section>
@@ -114,10 +106,7 @@
 	</section>
 
 	<footer id="footer">
-		<div id="footer-img-container">
-			<img id="footer-img" src="img/visa_mastercard.png"/>
 		
-		</div>
 	</footer>
 </body>
 

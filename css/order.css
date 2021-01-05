@@ -555,8 +555,16 @@ input[type="text"]{
 #detail-title{
 	position:absolute;
 	left:0;
-	background:#eee;
+	background:#ffde17;
 	padding:5px;
+	cursor:pointer;
+	margin:5px;
+	padding:4px 8px;
+	color: #3c2415;
+	display:inline-block;
+	font-weight: bold;
+	font-size:10px;
+		box-shadow: 1px 1px 1px #3c2415;
 }
 
 #shipping-price-paid{

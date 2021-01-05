@@ -17,6 +17,7 @@ function initialize(){
   //showPaymentComplete();
   //saveOrderDB();
   $('#header').load("header.html", onHeaderLoaded);
+  $('#footer').load("footer.html", onHeaderLoaded);
 
   category = localStorage.getItem('category');
   finalPrice = localStorage.getItem('finalPrice');

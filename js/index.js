@@ -258,6 +258,8 @@ $(window).resize(function() {
 
 function initialize(){
 	$('#header').load("header.html", onHeaderLoaded);
+  $('#navigation').load("navigation.html", onNavigationLoaded);
+  $('#footer').load("footer.html", onFooterLoaded);
   $('#left-sample-image').click(function(){
       window.location= "/order.html?category=" + 1;
   });
@@ -271,6 +273,13 @@ function onHeaderLoaded(){
 	
 }
 
+function onFooterLoaded(){
+  
+}
+
+function onNavigationLoaded(){
+  
+}
 
 function setListeners(){
 	

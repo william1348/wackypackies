@@ -13,6 +13,19 @@ var getUrlParameter = function getUrlParameter(sParam) {
     }
 };
 
+function subscribeEmail(email){
+  var body = {
+    "email" : email
+  }
+  $.ajax({
+      url: BASE_URL + "subscribe",
+      data: body,
+      dataType: 'json',
+      type: 'POST'
+    }).then(function(data){
+      alert('email subscribed');
+    });
+}
 
 // function formatPrice(input){
 //     console.log('format price! ' + input);
