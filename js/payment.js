@@ -25,9 +25,10 @@ function initialize(){
   message = localStorage.getItem('message');
   to = localStorage.getItem('to');
   from = localStorage.getItem('from');
+  orderID = localStorage.getItem('orderID');
   addOnsArray = JSON.parse(localStorage.getItem('itemsArray'));
-  if(addOnsArray == null || finalPrice == -1){
-    // show nothing in cart error
+  if(addOnsArray == null || finalPrice == -1 || orderID == -1 || to == "" || from == ""){
+     window.location= "/index.html";
     return;
   }
   $('#sq-creditcard').text('Pay $' + finalPrice);
@@ -122,7 +123,6 @@ function showPaymentComplete(){
 }
 
 function saveOrderDB(){
-  orderID = generateOrderID();
   email = $('#email-input').val();
   name = $('#name-input').val();
   address = $('#address').val() + " " + $('#city').val() + " " + $('#state').val() + " " + $('#zip').val();
