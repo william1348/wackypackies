@@ -374,6 +374,15 @@ html, body{
 	#logo{
 		width:90% !important;
 	}
+
+	.home-section-image{
+		width:80%;
+	}
+
+	.order-section-title{
+		width:70%;
+		margin-bottom:20px;
+	}
 }
 
 @media (max-width: 700px) {

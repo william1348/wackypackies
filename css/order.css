@@ -26,23 +26,30 @@
 
 #themes-container{
 	overflow-y:scroll;
-	background:orange;
 	margin-top:5px;
+}
+
+#theme-name{
+	color:	#3c2415;
+	text-transform: uppercase;
+	font-size:10px;
+	margin-left:0px;
 	margin-bottom:20px;
 }
 
 .theme-item{
 	float:left;
-	width:calc(33% - 6px);
-	border:2px #ccc solid;
+	width:100px;
+	border:2px #fff solid;
 	background:red;
-	height:80px;
+	height:55px;
 	display:inline-block;
 	cursor:default;
+	border-radius:4px;
 }
 
 #theme-selected{
-	border:2px #222 solid;
+	border:2px #603913 solid;
 }
 
 #right-container{
@@ -599,8 +606,11 @@ input[type="text"]{
 }
 
 #mobile-see-all{
+	text-transform: uppercase;
 	text-align:center;
 	margin-bottom:80px;
+	margin-left:20px;
+	margin-right:20px;
 }
 
 @media (max-width: 420px) {

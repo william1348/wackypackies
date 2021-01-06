@@ -20,6 +20,12 @@ var DEFAULT_SHIPPING_PRICE = 7;
 // order #
 var orderID = -1;
 var images = [];
+var categoriesList;
+
+$(window).resize(function(){
+  populateCategories(categoriesList);
+  console.log('window resize');
+});
 
 $(document).ready(function(){
 	  initialize();
@@ -47,6 +53,7 @@ $(document).ready(function(){
         url: BASE_URL + CATEGORIES
     }).then(function(data) {
        populateCategories(data.categories);
+       categoriesList = data.categories;
     });
 
     // toggle ready for payment button (on back press)
@@ -177,7 +184,13 @@ function initialize(){
   });
 
   $('#mobile-see-all').click(function(){
-    $('#categories-mobile').show();
+    if($(this).text() == "hide categories"){
+      $('#categories-mobile').slideUp();
+      $(this).text("show all categories");
+    }else{
+        $('#categories-mobile').slideDown();
+      $(this).text("hide categories");
+    }
   });
 
   populateForm();
@@ -340,6 +353,7 @@ function toggleCustomize(show){
 
 function populateCategories(list){
   console.log(list);
+  categoryArray = [];
 
   for(var i=0;i<list.length;i++){
     var category = new Category(list[i].id, list[i].name, list[i].description, list[i].base, list[i].included, list[i].addons, list[i].src);
@@ -349,14 +363,17 @@ function populateCategories(list){
   //  console.log( " name " + category.name + " id " + category.id + " included " + category.included + " add ons " + list[i].addons.toString());
   }
 
+  var container;
+  if($('#categories-container').is(":visible")){
+    container = $('#categories-container');
+  }else{
+    container = $('#categories-mobile');
+  }
+  container.empty();
+
   for(var j=0;j<categoryArray.length;j++){
     var $currentRow;
-    var container;
-    if($('#categories-container').is(":visible")){
-      container = $('#categories-container');
-    }else{
-      container = $('#categories-mobile');
-    }
+
     if(j % 2 == 0){
       var $row = $('<div>', {class: "row"});
       container.append($row);
@@ -464,11 +481,12 @@ function populateItems(){
 
 function populateThemes(themes){
   var $container = $('#themes-container');
-  var $themeTitle = $('#theme-title');
+  var $themeName = $('#theme-name');
   for(var i=0;i<themes.length;i++){
     (function(){
       var $item = $('<div>', {class: "theme-item"});
-      $item.css({"background-image" : "url('img/theme1.png')"});
+      url = "url('" + IMG_DIRECTORY + themes[i].src + "')";
+      $item.css({"background-image" : url});
       $item.css({"background-size" : "cover"});
       $item.name = themes[i].name;
 //    $item.append('hi ' + themes[i].name);
@@ -476,10 +494,11 @@ function populateThemes(themes){
       $item.click(function(){
         $('.theme-item').removeAttr("id");
         $item.attr('id', "theme-selected");
-       // $themeTitle.text($item.name);
+        $themeName.text($item.name);
       });
     }()); 
   }
+  $('.theme-item').first().click();
 }
 
 function populateAddons(addonsArray){
