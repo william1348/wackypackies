@@ -21,10 +21,14 @@ var DEFAULT_SHIPPING_PRICE = 7;
 var orderID = -1;
 var images = [];
 var categoriesList;
+var selectedTheme = 0;
+
+var isMobile = false;
 
 $(window).resize(function(){
-  populateCategories(categoriesList);
-  console.log('window resize');
+  if(isMobile != checkMobile()){
+    populateCategories(categoriesList);
+  }
 });
 
 $(document).ready(function(){
@@ -67,7 +71,12 @@ $(document).ready(function(){
     });
 });
 
+function checkMobile(){
+  return (window.innerWidth < MAX_MOBILE_WIDTH);
+}
+
 function initialize(){
+  isMobile = checkMobile();
   $('#header').load("header.html", onHeaderLoaded);
   $('#footer').load("footer.html", onHeaderLoaded);
   $('#navigation').load("navigation.html", onHeaderLoaded);
@@ -352,7 +361,6 @@ function toggleCustomize(show){
 
 
 function populateCategories(list){
-  console.log(list);
   categoryArray = [];
 
   for(var i=0;i<list.length;i++){
@@ -370,6 +378,9 @@ function populateCategories(list){
     container = $('#categories-mobile');
   }
   container.empty();
+  var heading = $('<div>', {class: "category-heading sub-heading"});
+  heading.append("All Categories");
+  container.append(heading);
 
   for(var j=0;j<categoryArray.length;j++){
     var $currentRow;
@@ -485,6 +496,7 @@ function populateThemes(themes){
   for(var i=0;i<themes.length;i++){
     (function(){
       var $item = $('<div>', {class: "theme-item"});
+      $item.attr('theme', i.toString());
       url = "url('" + IMG_DIRECTORY + themes[i].src + "')";
       $item.css({"background-image" : url});
       $item.css({"background-size" : "cover"});
@@ -495,6 +507,7 @@ function populateThemes(themes){
         $('.theme-item').removeAttr("id");
         $item.attr('id', "theme-selected");
         $themeName.text($item.name);
+        selectedTheme = $item.attr("theme");
       });
     }()); 
   }
@@ -585,10 +598,12 @@ function updatePrices(){
 
 function saveForm(){
   $('#input-order-id').attr('value', orderID);
+  localStorage.setItem('orderID', orderID);
   localStorage.setItem('to', $('#input-to').val());
   localStorage.setItem('from', $('#input-from').val());
   localStorage.setItem('message', $('#input-message').val());
   localStorage.setItem('instructions', $('#input-instructions').val());
+  localStorage.setItem('theme', selectedTheme);
 }
 
 function populateForm(){

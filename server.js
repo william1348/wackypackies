@@ -336,7 +336,6 @@ MongoClient.connect(dbUrl, (err, client) => {
 		var newid;
 		db.collection("counters").findOne({}, function(err, result){
  			newid = result.usersCounter + 1;
- 			console.log('1 new id is : ' + newid);
  			var obj = {
 				Username : request.body.Username.toLowerCase(),
 				PasswordHash : request.body.PasswordHash,

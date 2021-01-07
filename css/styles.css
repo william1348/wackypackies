@@ -148,7 +148,8 @@ html, body{
 }
 
 .home-section-image{
-	width:90%;
+	width:calc(90% - 20px);
+	padding:10px;
 }
 
 .browse-section-image{
@@ -160,13 +161,14 @@ html, body{
 }
 
 .order-section{
-	margin-top:20px;
-	margin-bottom:20px;
+	margin-top:10px;
+	margin-bottom:30px;
 	text-align:center;
 }
 
 .order-section-title{
 	width:80%;
+	font-size:14px;
 }
 
 .section-title{
@@ -366,7 +368,7 @@ html, body{
 }
 
 
-@media (max-width: 420px) {
+@media (max-width: 650px) {
 	.menu-item{
 		width:calc(33% - 30px) !important;
 	}

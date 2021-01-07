@@ -5,6 +5,7 @@ var CATEGORIES ="categories";
 var CATEGORY = "category";
 var ITEMS = "items";
 var THEMES = "themes";
+var MAX_MOBILE_WIDTH = 650;
 
 var IMG_DIRECTORY = "/img/"
 

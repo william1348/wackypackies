@@ -25,6 +25,7 @@ function initialize(){
   message = localStorage.getItem('message');
   to = localStorage.getItem('to');
   from = localStorage.getItem('from');
+  theme = localStorage.getItem('theme');
   orderID = localStorage.getItem('orderID');
   addOnsArray = JSON.parse(localStorage.getItem('itemsArray'));
   if(addOnsArray == null || finalPrice == -1 || orderID == -1 || to == "" || from == ""){
@@ -131,7 +132,8 @@ function saveOrderDB(){
     "details" : {
       "to" : to,
       "from" : from,
-      "message" : message
+      "message" : message,
+      "theme" : theme
     },
     "address" : address,
     "email" : email,

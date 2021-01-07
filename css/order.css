@@ -5,7 +5,7 @@
 	#603913;
 
 	lite brown: 
-	#d3b297;
+	#A97C50;
 
 	yellow:
 	#ffde17;
@@ -556,15 +556,18 @@ input[type="text"]{
 #categories-container{
 	margin-bottom:50px;
 }
+
 #detail-content{
 	text-align:left;
 }
 
 #detail-title{
-	position:absolute;
-	left:0;
-	background:#eee;
-	padding:5px;
+	display:block;
+	clear:both;
+	text-transform: uppercase;
+	margin-top:5px;
+	margin-bottom:5px;
+
 }
 
 #shipping-price-paid{
@@ -613,7 +616,16 @@ input[type="text"]{
 	margin-right:20px;
 }
 
-@media (max-width: 420px) {
+.category-heading{
+	text-transform: uppercase;
+	margin-top:40px;
+}
+
+@media (max-width: 650px) {
+
+	.category-heading{
+		display:none;
+	}
 
 	#save-button, #upload-image-button-mask, #upload-image-button-mask-new, #payment-button, #clear-images-button{
 		width:100%;

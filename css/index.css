@@ -129,7 +129,7 @@ html, body{
 }
 
 
-@media (max-width: 420px) {
+@media (max-width: 650px) {
 
 	.build-your-own-button{
 		display:block;
