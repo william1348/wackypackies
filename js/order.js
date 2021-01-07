@@ -193,13 +193,8 @@ function initialize(){
   });
 
   $('#mobile-see-all').click(function(){
-    if($(this).text() == "hide categories"){
-      $('#categories-mobile').slideUp();
-      $(this).text("show all categories");
-    }else{
-        $('#categories-mobile').slideDown();
-      $(this).text("hide categories");
-    }
+      $('#categories-mobile').slideDown();
+      $(this).css({"opacity" : 0});
   });
 
   populateForm();

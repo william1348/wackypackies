@@ -609,11 +609,13 @@ input[type="text"]{
 }
 
 #mobile-see-all{
+	display:inline-block;
+	margin:auto;
 	text-transform: uppercase;
 	text-align:center;
 	margin-bottom:80px;
-	margin-left:20px;
-	margin-right:20px;
+	margin-top:20px;
+	background:none;
 }
 
 .category-heading{
@@ -633,6 +635,7 @@ input[type="text"]{
 		padding:0;
 	}
 	#categories-container-mobile{
+		text-align: center;
 		display:block;
 	}
 
