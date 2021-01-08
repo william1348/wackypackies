@@ -1,7 +1,6 @@
 var carousel_width = -1;
 var default_container_width = -1;
 var tag_array = [];
-var BASE_URL = "http://localhost:8000/";
 var USERNAME = "username";
 var PASSWORD = "password";
 var CATEGORIES ="categories"

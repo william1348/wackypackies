@@ -1,4 +1,4 @@
-var BASE_URL = "http://localhost:8000/";
+var BASE_URL = "http://44.241.37.104:8000/";
 var USERNAME = "username";
 var PASSWORD = "password";
 var CATEGORIES ="categories";

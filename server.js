@@ -7,7 +7,6 @@ var fs = require('fs');
 var http = require('http');
 var cors = require('cors')
 var app = express()
-var BASE_URL = "http://localhost:8000/";
 const port = 8000;
 
 app.use(cors())
