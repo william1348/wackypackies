@@ -5,9 +5,22 @@ const crypto = require('crypto');
 const squareConnect = require('square-connect');
 var fs = require('fs');
 var http = require('http');
-var cors = require('cors')
+var https = require('https');
+var cors = require('cors');
+
+var privateKey  = fs.readFileSync('key.pem', 'utf8');
+var certificate = fs.readFileSync('cert.pem', 'utf8');
+var credentials = {key: privateKey, cert: certificate};
+
+// /root/.acme.sh/wackypackies.com_ecc/wackypackies.com.cer 
+// [Wed Jan 13 18:19:08 UTC 2021] Your cert key is in  /root/.acme.sh/wackypackies.com_ecc/wackypackies.com.key 
+// [Wed Jan 13 18:19:08 UTC 2021] The intermediate CA cert is in  /root/.acme.sh/wackypackies.com_ecc/ca.cer 
+// [Wed Jan 13 18:19:08 UTC 2021] And the full chain certs is there:  /root/.acme.sh/wackypackies.com_ecc/fullchain.cer 
+
 var app = express()
-const port = 8000;
+const port = 8001;
+var httpsServer = https.createServer(credentials, app);
+httpsServer.listen(8002);
 
 app.use(cors())
 app.use(bodyParser());
