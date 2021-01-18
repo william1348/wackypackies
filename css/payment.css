@@ -49,25 +49,19 @@ body, html{
 }
 
 #category-name{
-	font-family: 'Noto Sans JP', sans-serif;
-	cursor:pointer;
-	margin:auto;
-	display:inline-block;
+	clear:both;
+	float:left;
+	margin-top:10px;
+	text-transform: uppercase;
 	padding:3px 12px;
-	/*display:inline-block;*/
-	/*background: #ffde17;*/
-	background:#fff;
+	border-radius:3px;
 	color:#3c2415;
 	text-transform: uppercase;
 	font-size:16px;
-	border-radius:4px;
 	border:1px #603913 solid;
-	box-shadow: 1px 1px 2px #666;
-	font-weight:300;
+		font-weight:300;
 	letter-spacing: .01em;
-	width:60%;
-	max-width: 299px;
-
+		box-shadow: 1px 1px 2px #666;
 }
 
 #shipping-heading{
@@ -141,6 +135,7 @@ body, html{
 }
 
 .message-tag{
+	clear:both;
 	margin-top:10px;
 	float:left;
 	padding-right:2px;
@@ -150,6 +145,7 @@ body, html{
 }
 
 #message-container{
+	margin-top:10px;
 /*	margin-top:20px;*/
 }
 

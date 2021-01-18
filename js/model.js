@@ -1,4 +1,6 @@
-var BASE_URL = "https://44.241.37.104:8002/";
+// var BASE_URL = "https://44.241.37.104:8002/";
+// uncomment for local testing 
+var BASE_URL = "http://localhost:8000/";
 var USERNAME = "username";
 var PASSWORD = "password";
 var CATEGORIES ="categories";
