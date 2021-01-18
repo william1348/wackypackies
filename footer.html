@@ -2,7 +2,7 @@
 	<script>
 		var lastScrollTop = 0;
 		$(document).ready(function(){
-			$("#footer").hide();
+			//$("#footer").hide();
 			$('#subscribe-submit').click(function(){
 				subscribeEmail($('#subscribe-email-input').val());
 				hideSubscribeEmail();
@@ -13,13 +13,13 @@
 				//showCopyright();
 			}
 			$(window).scroll(function(e){
-				var st = $(this).scrollTop();
-			    if (st > lastScrollTop){
-  			       $('#footer').fadeIn();
-			    } else {
-			       $('#footer').fadeOut();
-			    }
-			    lastScrollTop = st;
+				// var st = $(this).scrollTop();
+			 //    if (st > lastScrollTop){
+  		// 	       $('#footer').fadeIn();
+			 //    } else {
+			 //       $('#footer').fadeOut();
+			 //    }
+			 //    lastScrollTop = st;
 			});
 		});
 
