@@ -176,14 +176,20 @@ body, html{
 	height:56px !important;
 	height:56px !important;
 	border-radius:6px !important;
+	border:0 !important;
 }
 
 #shipping-save-button{
 	background: #603913;
-	color:#fff;
+	color:white;
 	border:0;
 	height:56px;
+	font-size:16px;
 	border-radius:6px;
+}
+
+#shipping-save-button:hover{
+	opacity:0.8;
 }
 
 #before-payment{
