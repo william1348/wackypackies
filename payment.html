@@ -1,7 +1,6 @@
 <html>
 	<head>
-	<!-- link to the SqPaymentForm library -->
-	<script type="text/javascript" src="https://js.squareupsandbox.com/v2/paymentform">
+	<script type="text/javascript" src="https://js.squareup.com/v2/paymentform">
 	</script>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery-ui.js"></script>
@@ -106,17 +105,10 @@
 				</div> <!-- end #form-container --> 
 
 			    <script type="text/javascript">
-			    	//TODO: paste code from step 2.1.1
-
 			    	const idempotency_key = uuidv4();
-
-
-			     // Create and initialize a payment form object
 			     	const paymentForm = new SqPaymentForm({
-			       // Initialize the payment form elements
-			       
-			       //TODO: Replace with your sandbox application ID
-			       applicationId: "sandbox-sq0idb-GQ2DzHjaRaFtQ3mhWIS_0A",
+			       ///*DEVELOP */ applicationId: "sandbox-sq0idb-GQ2DzHjaRaFtQ3mhWIS_0A",
+			       /* PRODUCTION */ applicationId: "sq0idp-ZdTPnb7kjyP-jevmadPx0w",
 			       inputClass: 'sq-input',
 			       autoBuild: false,
 			       // Customize the CSS for SqPaymentForm iframe elements
@@ -161,7 +153,7 @@
 						   return;
 						}
 
-						fetch('process-payment', {
+						fetch(BASE_URL + PROCESS_PAYMENT, {
 						  method: 'POST',
 						  headers: {
 						    'Accept': 'application/json',
@@ -171,6 +163,7 @@
 						    nonce: nonce,
 						    idempotency_key: idempotency_key,
 						    amount_money:{amount:parseInt(parseFloat($('#hidden-final-price').text() * 100)), currency:'USD'},
+						   /* TEST CHARGE $1.00 */ // amount_money:{amount:parseInt(100), currency:'USD'},
 						    location_id: "KAMBM78ZTBXTR"
 						  })   
 						})

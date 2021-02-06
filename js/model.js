@@ -1,12 +1,13 @@
-// var BASE_URL = "https://44.241.37.104:8002/";
-// uncomment for local testing 
-var BASE_URL = "http://localhost:8000/";
+var BASE_URL = "https://wackypackies.com:8002/";
+// // uncomment for local testing 
+// var BASE_URL = "http://localhost:8000/";
 var USERNAME = "username";
 var PASSWORD = "password";
 var CATEGORIES ="categories";
 var CATEGORY = "category";
 var ITEMS = "items";
 var THEMES = "themes";
+var PROCESS_PAYMENT = "process-payment";
 var MAX_MOBILE_WIDTH = 650;
 
 var IMG_DIRECTORY = "/img/"

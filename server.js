@@ -6,9 +6,30 @@ const squareConnect = require('square-connect');
 var fs = require('fs');
 var http = require('http');
 var cors = require('cors')
+var https = require('https');
 var app = express()
 var BASE_URL = "http://localhost:8000/";
-const port = 8000;
+const port = 8001;
+
+var privateKey  = fs.readFileSync('/etc/letsencrypt/live/wackypackies.com/privkey.pem', 'utf8');
+var certificate = fs.readFileSync('/etc/letsencrypt/live/wackypackies.com/fullchain.pem', 'utf8');
+var credentials = {key: privateKey, cert: certificate};
+var httpsServer = https.createServer(credentials, app);
+httpsServer.listen(8002);
+
+// - Congratulations! Your certificate and chain have been saved at:
+//    /etc/letsencrypt/live/wackypackies.com/fullchain.pem
+//    Your key file has been saved at:
+//    /etc/letsencrypt/live/wackypackies.com/privkey.pem
+//    Your certificate will expire on 2021-05-06. To obtain a new or
+//    tweaked version of this certificate in the future, simply run
+//    certbot again with the "certonly" option. To non-interactively
+//    renew *all* of your certificates, run "certbot renew"
+//  - If you like Certbot, please consider supporting our work by:
+
+//    Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+//    Donating to EFF:                    https://eff.org/donate-le
+
 
 app.use(cors())
 app.use(bodyParser());
@@ -18,7 +39,11 @@ app.use(express.static(__dirname));
 
 const MongoClient = require('mongodb').MongoClient
 // square
-const accessToken = "EAAAEGfyJWlDjkxT_yPl0d79jIOPBpXOujuyc52LyPaCtGuWrrjbw0M_ElPR4_WX";
+
+/* DEVELOP */ // const accessToken = "EAAAEGfyJWlDjkxT_yPl0d79jIOPBpXOujuyc52LyPaCtGuWrrjbw0M_ElPR4_WX";
+
+/* PRODUCTION */ const accessToken = "EAAAEN6Yjf36yyQ4JuqaN6GuPC3Dyxv3Gzj5_SPKK4ne_9cJ_cnuYFLCZ60LB7Y8";
+
 // Set Square Connect credentials and environment
 const defaultClient = squareConnect.ApiClient.instance;
 
@@ -29,7 +54,9 @@ oauth2.accessToken = accessToken;
 // Set 'basePath' to switch between sandbox env and production env
 // sandbox: https://connect.squareupsandbox.com
 // production: https://connect.squareup.com
-defaultClient.basePath = 'https://connect.squareupsandbox.com';
+/* DEVELOP */ // defaultClient.basePath = 'https://connect.squareupsandbox.com';
+/* PRODUCTION */ defaultClient.basePath = 'https://connect.squareup.com';
+
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
