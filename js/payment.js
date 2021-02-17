@@ -74,7 +74,7 @@ function readyForPayment(){
 }
 
 function populatePriceTotal(){
-  $('#price-total').text("TOTAL: $" + finalPrice);
+  $('#price-total').html("TOTAL : $" +finalPrice);
 }
 
 function toggleSquarePayment(show){
